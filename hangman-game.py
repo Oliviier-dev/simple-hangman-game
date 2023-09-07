@@ -2,7 +2,7 @@ import random
 
 word_list = ["little", "book", "trouble", "apple"]
 random_word = random.choice(word_list)
-Lives = 6
+lives = 6
 display = []
 
 game_over = False
@@ -22,3 +22,13 @@ while not game_over:
         if letter == guessed_letter:
             display[position] = guessed_letter
     print(display)
+
+    if guessed_letter not in random_word:
+        lives = lives - 1
+        if lives == 0:
+            game_over = True 
+            print ("You lose")
+    
+    if "_" not in display:
+        game_over = True
+        print("You won")
